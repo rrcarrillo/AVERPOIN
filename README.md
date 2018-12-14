@@ -4,9 +4,10 @@
 ## What is it?
 
 AVERPOIN is an application software which evaluates analytically the
-representation suitability of a set of neural-network positive inputs.
-This suitability refers to the network ability to generate any output
-value from any input of the specified set using only positive weights.
+representation quality of a set of neural-network inputs.
+This quality refers to the network ability to generate any output
+value from any input of a specified set using only positive weights
+and positive inputs.
 Each network input of the set is represented by an array (vector) of
 positive values. AVEPOIN considers that the network calculates each output
 through the weighted sum of the corresponding input vector values.
@@ -19,23 +20,24 @@ the worst possible representation, and 1 a representation for which the
 network is able to generate any output value for any input vector.
 AVERPOIN is also able to represent graphically the set of inputs so that
 its suitability can by visually assessed.
+
 AVERPOIN consists in a set of source code files written in MATLAB
 language.
-The fitness value returned by AVERPOIN is comparable to the MATLAB
-expression rank(C)/size(C,1) but for the case in which the linear
-combination of C columns are performed only with positive coefficients.
 
+The fitness value returned by AVERPOIN is conceptually comparable to the
+MATLAB expression rank(C)/size(C,1) but for the case in which the linear
+combination of C columns are performed only with positive coefficients.
 
 ## Usage
 
 AVERPOIN can be executed by MATLAB and Octave. It has been tested with
 MATLAB R2012a and Octave 4.0.0. Considering these versions MATLAB provides
 a significantly faster execution and better graphical representation.
-The main function for evaluating analytically a cone C is:
+The main function for evaluating analytically a cone C, Ir(C), is:
 
 > result=int_res(C,plot_flag).
 
-The testing function for evaluating numerically a cone C is:
+The testing function for evaluating numerically a cone C, Ir_num(C), is:
 
 > result=int_res_num(C,n_pts_dim,plot_flag).
 
@@ -53,6 +55,12 @@ function use the "help" command of MATLAB or Octave, especially:
 
 > help int_res_num
 
+## Reference
+
+The calculation performed by this software is explained and
+illustrated in the publication https://doi.org/10.3389/fnins.2018.00913:
+
+> Carrillo, R. R., Naveros, F., Ros, E., & Luque, N. R. (2018). A Metric for Evaluating Neural Input Representation in Supervised Learning Networks. Frontiers in Neuroscience, 12, 913.
 
 ## Licensing
 
